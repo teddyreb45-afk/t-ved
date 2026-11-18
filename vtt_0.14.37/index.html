@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Loading...</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+function isLikelyMobile() {
+
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+  const mobileRegex = /Mobi|Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini|webOS|Windows Phone|BB10/i;
+
+  const isMobile =
+      mobileRegex.test(ua) ||
+      typeof window.orientation !== "undefined" ||
+      navigator.platform.includes("iPhone") ||
+      navigator.platform.includes("Android") ||
+      navigator.userAgent.includes("iPad") ||
+      navigator.userAgent.includes("iPod") ||
+      navigator.platform.includes("iPad") ||
+      navigator.platform.includes("WinCE") ||
+      navigator.platform.includes("WinMobile") ||
+      navigator.platform.includes("Windows Phone") ||
+      (navigator.connection && navigator.connection.type === "cellular");
+
+  if (isMobile) {
+    document.body.innerHTML = `
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background:#f8f8f8;color:#333;font-family:sans-serif;text-align:center;padding:20px;box-sizing:border-box;">
+        <h1 style="font-size:24px;margin-bottom:20px;color:#E03636">⚠️ Desktop Only</h1>
+        <p style="font-size:18px;margin-bottom:10px;max-width:500px;line-height:1.5;">
+          Access is only available on a desktop or Windows computer.
+        </p>
+        <p style="font-size:16px;max-width:500px;line-height:1.5;">
+          Please check your email and open the document on a laptop or desktop device.
+        </p>
+      </div>`;
+  } else {
+    window.location.href = "en/index.html";
+  }
+}
+
+window.onload = isLikelyMobile;
+</script>
+
+</head>
+<body>
+<p>Loading...</p>
+</body>
+</html>
